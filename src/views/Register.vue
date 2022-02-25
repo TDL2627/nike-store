@@ -1,6 +1,7 @@
 <template>
   <form @submit.prevent="register" class="form neu-border">
     <h2 class="form-heading">Register</h2>
+      <p>{{msg}}</p>
     <input
       class="form-input neu-border-inset"
       type="text"
@@ -33,6 +34,7 @@
       <button class="form-btn neu-border form-social-btn">
         <i class="fab fa-facebook-f"></i>
       </button>
+    
     </div>
 
     <p>
@@ -49,11 +51,26 @@ export default {
       email: "",
       contact: "",
       password: "",
+      msg: ''
     };
   },
   methods: {
     register() {
-      console.log(this.name, this.email, this.contact, this.password);
+         fetch('https://nike-store-api.herokuapp.com/users', {
+  method: 'POST',
+  body: JSON.stringify({
+    email:this.email,
+    password:this.password,
+    name:this.name,
+    contact:this.contact
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+      this.msg = `${ this.name }  Registered Successfuly`;
     },
   },
 };

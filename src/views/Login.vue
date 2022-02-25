@@ -14,15 +14,8 @@
       placeholder="Password"
     />
     <button type="submit" class="form-btn neu-border">Sign in</button>
-    <div class="form-social-login">
-      <button class="form-btn neu-border form-social-btn">
-        <i class="fab fa-google"></i>
-      </button>
-      <button class="form-btn neu-border form-social-btn">
-        <i class="fab fa-facebook-f"></i>
-      </button>
-    </div>
-
+ 
+  <p>{{msg}}</p>
     <p>
       Not a member?
       <router-link :to="{ name: 'Register' }">Create an account</router-link>
@@ -33,15 +26,29 @@
 export default {
   data() {
     return {
+      name:"",
       email: "",
       password: "",
+      msg:""
     };
   },
   methods: {
     login() {
-      console.log(this.email, this.password);
-    },
+     fetch('https://nike-store-api.herokuapp.com/users', {
+  method: 'PATCH',
+  body: JSON.stringify({
+    email:this.email,
+    password:this.password
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
   },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+       this.msg = `${ name }  Logged in Successfuly`;
+    }
+  }
 };
 </script>
 <style>
