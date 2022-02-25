@@ -29,26 +29,33 @@ export default {
       name:"",
       email: "",
       password: "",
-      msg:""
+      msg:"",
+       isLoggedIn: false
     };
   },
   methods: {
     login() {
-     fetch('https://nike-store-api.herokuapp.com/users', {
-  method: 'PATCH',
-  body: JSON.stringify({
-    email:this.email,
-    password:this.password
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
+      fetch("https://nike-store-api.herokuapp.com/users", {
+        method: "PATCH",
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          localStorage.setItem("jwt", json.jwt);
+          alert("User logged in");
+          this.$router.push({ name: "Cart" });
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
   },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-       this.msg = `${ name }  Logged in Successfuly`;
-    }
-  }
 };
 </script>
 <style>

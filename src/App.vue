@@ -1,12 +1,17 @@
 <template>
- <Navbar/>
+ <Navbar :isLoggedIn="isLoggedIn" />
   <router-view/>
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue";
 export default {
-  components:{Navbar}
+  components:{Navbar},
+  data(){
+    return{
+     
+    }
+  }
 }
 </script>
 
