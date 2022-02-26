@@ -1,6 +1,10 @@
 <template>
   <h1>Products</h1>
-<div v-for="product of products" :key="product.name" class="card">
+
+<div class="container">
+<div class="row">
+
+<div v-for="product of products" :key="product.name" class="card col-lg-4">
 <img :src="product.img" alt="pik" class="pic">
 <h3>{{product.name}}</h3>
 <p>{{product.price}}</p>
@@ -8,6 +12,11 @@
 <button>delete</button>
 <button>edit</button>
 </div>
+
+</div>
+</div>
+
+
 </template>
 
 <script>
@@ -67,7 +76,7 @@ export default {
 }
 .pic{
   height: 250px;
-  width: 350px;
+  width: max-content;
   object-fit:cover ;
 }
 </style>
