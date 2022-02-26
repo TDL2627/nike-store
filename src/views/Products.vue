@@ -88,10 +88,10 @@ export default {
           });
         })
         .catch((err) => {
-          alert("User not loggen  in");
+          alert("Log in failed");
         });
     } else {
-      alert("User not logged in");
+      alert("Not logged in");
       this.$router.push({ name: "Login" });
     }
     

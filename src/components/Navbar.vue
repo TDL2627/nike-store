@@ -1,14 +1,19 @@
 <template>
    <div id="nav">
     <router-link to="/">Home</router-link> |
-
-  <router-link  to="/products">Products</router-link> |
-   <router-link to="/cart">Cart</router-link>  |
-    
-
-    
+<div v-if="isLoggedIn">
    <router-link  to="/login">Login</router-link> |
     <router-link to="/register">Register</router-link>
+
+</div>
+
+    
+
+    <div v-else>
+  <router-link  to="/products">Products</router-link> |
+   <router-link to="/cart">Cart</router-link>  |
+    </div>
+  
     
 
 <!-- 
