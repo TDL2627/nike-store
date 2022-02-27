@@ -1,4 +1,6 @@
 <template>
+<div class="login">
+   <router-link to="/">Home</router-link>
   <form @submit.prevent="login" class="form neu-border">
     <h2 class="form-heading">Login</h2>
     <input
@@ -21,6 +23,9 @@
       <router-link :to="{ name: 'Register' }">Create an account</router-link>
     </p>
   </form>
+
+
+</div>
 </template>
 <script>
 export default {

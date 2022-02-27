@@ -23,5 +23,8 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+*{
+  font-family: 'Oswald', sans-serif;
+}
 
 </style>
