@@ -2,7 +2,7 @@
   <div class="home">
     <div class="l-text">
  <h1>NIKE </h1>
-    <h3>POINT OF SALES</h3>
+    <h3>POINT OF SALE</h3>
     </div>
    
 <div class="linky">
@@ -23,7 +23,7 @@ export default {
 <style scoped>
 .home{
   height: 100vh;
-  padding-top: 15%;
+  padding-top: 5%;
   background-image: url("../assets/bg.jpg");
   /* background-repeat: no-repeat; */
   /* background-size: cover; 

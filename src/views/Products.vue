@@ -4,7 +4,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
   <div class="container-fluid">
-   <h1>Products</h1>
+   <h1 style="margin-right:50px;">Products</h1>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,9 +22,9 @@
             Sort by
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><button>Price</button></li>
+            <li><button class="droppie">Price</button></li>
               <li><hr class="dropdown-divider"></li>
-            <li><button>Name</button></li>
+            <li><button class="droppie">Name</button></li>
           
           </ul>
         </li>
@@ -33,11 +33,11 @@
             Catergory
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-            <li><button>Shoes</button></li>
+            <li><button class="droppie">Shoes</button></li>
               <li><hr class="dropdown-divider"></li>
-            <li><button>Accessories</button></li>
+            <li><button class="droppie">Accessories</button></li>
             <li><hr class="dropdown-divider"></li>
-            <li><button>Clothing</button></li>
+            <li><button class="droppie">Clothing</button></li>
           </ul>
         </li>
         <li>
@@ -47,8 +47,9 @@
           </form>
         </li>
       </ul>
-         <router-link class="nav-link" to="/cart">TILL</router-link>
+         <router-link class="nav-link" to="/cart">CART</router-link>
             <router-link class="nav-link" to="/profiles">PROFILES</router-link>
+            <router-link class="nav-link" to="/">LOG OUT</router-link>
     </div>
   </div>
 </nav>
@@ -61,7 +62,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add Nike</h5>
         
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn=danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
        <form action="">
@@ -76,7 +77,7 @@
          </ul>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-success">Save changes</button>
       </div>
        </form>
       </div>
@@ -92,7 +93,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">EDIT NIKE</h5>
         
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
        <form action="">
@@ -107,7 +108,7 @@
          </ul>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-success">Save changes</button>
       </div>
        </form>
       </div>
@@ -125,8 +126,8 @@
 <h3>{{product.name}}</h3>
 <p>R{{product.price}}</p>
 <p>{{product.category}}</p>
-<button>DELETE</button>
-<button class="button" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+<button type="button" class="btn btn-danger" style="margin:10px;">DELETE</button>
+<button typw="button" class="btn btn-secondary" style="margin:10px;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
   EDIT 
 </button>
 </div>
@@ -209,14 +210,24 @@ export default {
   width: 100%;
   object-fit:cover ;
 }
-h1,h5{
+h1,h5,h3{
   color:red;
 }
 .nav-link{
   color:white !important;
 }
+.nav-link:hover{
+  color:red !important;
+}
+.nav-link:focus{
+  color:red !important;
+}
 ul{
   list-style: none;
 }
-
+.droppie{
+  border: none;
+  background: none;
+  padding-left: 50px;
+}
 </style>
