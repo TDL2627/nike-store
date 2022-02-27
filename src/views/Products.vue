@@ -1,5 +1,7 @@
 <template>
 <div class="products">
+  <router-link to="/cart">Till</router-link>
+   <router-link to="/">Home</router-link>
   <h1>Products</h1>
   <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -88,10 +90,11 @@ export default {
           });
         })
         .catch((err) => {
-          alert("Log in failed");
+          alert("Not logged in");
+          this.$router.push({ name: "Login" })
         });
     } else {
-      alert("Not logged in");
+      alert("Login failed");
       this.$router.push({ name: "Login" });
     }
     

@@ -1,5 +1,5 @@
 <template>
- <Navbar :isLoggedIn="isLoggedIn" />
+
   <router-view/>
 </template>
 

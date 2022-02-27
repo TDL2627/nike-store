@@ -1,4 +1,7 @@
 <template>
+<div class="register">
+
+   <router-link to="/">Home</router-link>
   <form @submit.prevent="register" class="form neu-border">
     <h2 class="form-heading">Register</h2>
       <p>{{msg}}</p>
@@ -38,10 +41,12 @@
     </div>
 
     <p>
-      Already a member?
+      Already a registered
       <router-link :to="{ name: 'Login' }">Sign in</router-link>
     </p>
   </form>
+</div>
+
 </template>
 <script>
 export default {
