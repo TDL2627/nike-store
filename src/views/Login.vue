@@ -14,12 +14,14 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
       type="email"
       v-model="email"
       placeholder="Email"
+      required
     />
     <input
       class="form-input neu-border-inset"
       type="password"
       v-model="password"
       placeholder="Password"
+      required
     />
     <button type="submit" class="form-btn neu-border">Sign in</button>
  
@@ -59,7 +61,7 @@ export default {
         .then((response) => response.json())
         .then((json) => {
           localStorage.setItem("jwt", json.jwt);
-          alert("User logged in");
+          alert("Logging in...");
           this.$router.push({ name: "Products" });
         })
         .catch((err) => {
@@ -82,8 +84,10 @@ export default {
 }
 .neu-border-inset {
   border-radius: 30px;
+  border: 1px solid black !important;
   background: #f5f5f5;
-  box-shadow: inset 8px 8px 15px #e4e4e4, inset -8px -8px 15px #ffffff;
+  color: red;
+  text-decoration-color: red;
 }
 .login{
   padding-top:7%;

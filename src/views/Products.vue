@@ -199,7 +199,7 @@ export default {
 .products{
   padding-top: 7%;
    padding-bottom: 7%;
-   padding-left: 7%;
+   padding-left: 8%;
 }
 .card{
   border: 2px solid black;
@@ -227,6 +227,11 @@ ul{
 }
 .droppie{
   border: none;
+  background: none;
+  padding-left: 50px;
+}
+.droppie:hover{
+color: red;
   background: none;
   padding-left: 50px;
 }
