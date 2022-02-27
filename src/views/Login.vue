@@ -19,7 +19,7 @@
  
   <p>{{msg}}</p>
     <p>
-      Not a member?
+      Not registered?
       <router-link :to="{ name: 'Register' }">Create an account</router-link>
     </p>
   </form>

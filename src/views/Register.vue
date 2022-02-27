@@ -10,11 +10,13 @@
       type="text"
       v-model="name"
       placeholder="Name"
+        required
     />
     <input
       class="form-input neu-border-inset"
       type="email"
       v-model="email"
+        required
       placeholder="Email"
     />
     <input
@@ -22,23 +24,22 @@
       type="text"
       v-model="contact"
       placeholder="Contact Number"
+        required
     />
     <input
       class="form-input neu-border-inset"
       type="password"
       v-model="password"
       placeholder="Password"
+      required
     />
+   <ul>
+     <li> MALE <input type="radio" v-model="gender"></li>
+     <li>FEMALE  <input type="radio" v-model="gender"> </li>
+   </ul>
+
     <button type="submit" class="form-btn neu-border">Sign up</button>
-    <div class="form-social-login">
-      <button class="form-btn neu-border form-social-btn">
-        <i class="fab fa-google"></i>
-      </button>
-      <button class="form-btn neu-border form-social-btn">
-        <i class="fab fa-facebook-f"></i>
-      </button>
-    
-    </div>
+   
 
     <p>
       Already a registered
@@ -56,6 +57,7 @@ export default {
       email: "",
       contact: "",
       password: "",
+      gender:"",
       msg: ''
     };
   },
@@ -67,7 +69,8 @@ export default {
     email:this.email,
     password:this.password,
     name:this.name,
-    contact:this.contact
+    contact:this.contact,
+    about:this.gender
   }),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
