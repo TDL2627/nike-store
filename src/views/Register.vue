@@ -90,6 +90,7 @@ export default {
 <style>
 .register{
   padding-top:7%;
+  padding-bottom: 6%;
 }
 .neu-border {
   border-radius: 30px;
@@ -98,7 +99,7 @@ background-color: rgb(167, 167, 167);
 }
 .neu-border-inset {
   border-radius: 30px;
-background-color: rgb(167, 167, 167);
+background-color: white;
   box-shadow: inset 8px 8px 15px #e4e4e4, inset -8px -8px 15px #ffffff;
 }
 

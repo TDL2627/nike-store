@@ -37,6 +37,7 @@ props:['isLoggedIn']
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+    width: 400px !important;
 }
 
 #nav a.router-link-exact-active {

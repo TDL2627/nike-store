@@ -44,6 +44,7 @@ a{
   border-radius: 25px;
   padding: 15px;
   margin:15px;
+  width: 400px !important;
   color: red;
   text-decoration: none;
   background-color: rgb(167, 167, 167);
