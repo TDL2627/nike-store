@@ -40,14 +40,15 @@
             <li><button>Clothing</button></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/cart">TILL</router-link>
+        <li>
+          <form class="d-flex">
+             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                     <button class="btn btn-outline-danger" type="submit">Search</button>
+          </form>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+         <router-link class="nav-link" to="/cart">TILL</router-link>
+            <router-link class="nav-link" to="/profiles">PROFILES</router-link>
     </div>
   </div>
 </nav>
@@ -65,10 +66,44 @@
       <div class="modal-body">
        <form action="">
     <ul>
-      <li>  NAME  <input type="text"></li>
-<li>  PRICE <input type="number"></li>
-<li>  IMAGE URL <input type="text"></li>
-           <li>Shoes<input type="radio">Accessories<input type="radio">Clothing<input type="radio"></li>
+      <li>NAME</li>
+      <li> <input type="text"></li>
+      <li>PRICE</li>
+<li> <input type="number"></li>
+<li>IMAGE URL</li>
+<li> <input type="text"></li>
+           <li>Shoes<input style="margin:10px;" type="radio">Accessories<input style="margin:10px;" type="radio">Clothing<input style="margin:10px;" type="radio"></li>
+         </ul>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+       </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<!-- Modal for edit  product -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">EDIT NIKE</h5>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form action="">
+    <ul>
+      <li>NAME</li>
+      <li> <input type="text"></li>
+      <li>PRICE</li>
+<li> <input type="number"></li>
+<li>IMAGE URL</li>
+<li> <input type="text"></li>
+           <li>Shoes<input style="margin:10px;" type="radio">Accessories<input style="margin:10px;" type="radio">Clothing<input style="margin:10px;" type="radio"></li>
          </ul>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -90,8 +125,10 @@
 <h3>{{product.name}}</h3>
 <p>R{{product.price}}</p>
 <p>{{product.category}}</p>
-<button>delete</button>
-<button>edit</button>
+<button>DELETE</button>
+<button class="button" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+  EDIT 
+</button>
 </div>
 
 </div>
@@ -172,11 +209,14 @@ export default {
   width: 100%;
   object-fit:cover ;
 }
-h1{
+h1,h5{
   color:red;
 }
 .nav-link{
   color:white !important;
+}
+ul{
+  list-style: none;
 }
 
 </style>

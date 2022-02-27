@@ -1,0 +1,15 @@
+<template>
+  <div class="profiles">
+      <h1>Profiles</h1>
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
