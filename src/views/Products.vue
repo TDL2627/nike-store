@@ -64,11 +64,11 @@
       </div>
       <div class="modal-body">
        <form action="">
-         <input type="text">
-          <input type="text">
-         <input type="text">
-         <ul>
-           <li>Shoes<input type="radio"></li>
+    <ul>
+      <li>  NAME  <input type="text"></li>
+<li>  PRICE <input type="number"></li>
+<li>  IMAGE URL <input type="text"></li>
+           <li>Shoes<input type="radio">Accessories<input type="radio">Clothing<input type="radio"></li>
          </ul>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -174,6 +174,9 @@ export default {
 }
 h1{
   color:red;
+}
+.nav-link{
+  color:white !important;
 }
 
 </style>
