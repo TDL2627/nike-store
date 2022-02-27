@@ -24,6 +24,7 @@ export default {
   background-color:black;
   height:100vh;
   color: #2c3e50;
+  overflow-y: scroll;
 }
 *{
   font-family: 'Oswald', sans-serif;

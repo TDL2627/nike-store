@@ -35,8 +35,6 @@ export default {
 }
 .l-text{
   color: red;
- 
-
 }
 h1,h3{
    font-size: 50px;
@@ -49,6 +47,9 @@ a{
   color: red;
   text-decoration: none;
   background-color: rgb(167, 167, 167);
+}
+a:hover{
+  color: black;
 }
 .linky{
     position: fixed;
