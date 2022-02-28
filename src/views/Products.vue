@@ -65,7 +65,7 @@
         <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       <form action="">
+       <form @submit.prevent="add">
     <ul>
       <li>NAME</li>
       <li> <input type="text"></li>
@@ -99,16 +99,16 @@
        <form action="">
     <ul>
       <li>NAME</li>
-      <li> <input type="text"></li>
+      <li> <input v-model="name" required type="text"></li>
       <li>PRICE</li>
-<li> <input type="number"></li>
+<li> <input v-model="price" required type="number"></li>
 <li>IMAGE URL</li>
-<li> <input type="text"></li>
-           <li>Shoes<input style="margin:10px;" type="radio">Accessories<input style="margin:10px;" type="radio">Clothing<input style="margin:10px;" type="radio"></li>
+<li> <input v-model="img" required  type="text"></li>
+           <li>Shoes<input v-model="category"  style="margin:10px;" type="radio">Accessories<input v-model="category" style="margin:10px;" type="radio">Clothing<input v-model="category" style="margin:10px;" type="radio"></li>
          </ul>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Save changes</button>
+        <button type="submit" class="btn btn-success">Save changes</button>
       </div>
        </form>
       </div>
@@ -134,13 +134,8 @@
 
 </div>
 </div>
-      
-
-
-
-
+    
 </div>
-
 
 </template>
 
@@ -150,6 +145,11 @@ export default {
   data() {
     return {
       products: null,
+      name:"",
+      category:"",
+      price:"",
+      img:""
+
     };
   },
   // fetching product
@@ -192,6 +192,24 @@ export default {
     }
     
   },
+  // add product
+     add() {
+         fetch('https://nike-store-api.herokuapp.com/products', {
+  method: 'POST',
+  body: JSON.stringify({
+  name:this.name,
+    price:this.price,
+   category:this.category,
+    img:this.img
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+      this.msg = `${ this.name }  Product Added`;
+    }
 };
 </script>
 
