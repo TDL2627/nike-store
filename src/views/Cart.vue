@@ -2,7 +2,7 @@
 
 
  <div class="cart">
-
+<the-loader></the-loader>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
   <div class="container-fluid">
    <h1 style="margin-right:50px;">CART</h1>

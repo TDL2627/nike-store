@@ -1,6 +1,6 @@
 <template>
 <div class="products">
- 
+ <the-loader></the-loader>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
   <div class="container-fluid">
@@ -140,8 +140,11 @@
 </template>
 
 <script>
+import TheLoader from "@/components/TheLoader.vue";
 export default {
-
+components:{
+  TheLoader
+},
   data() {
     return {
       products: null,
@@ -193,23 +196,34 @@ export default {
     
   },
   // add product
-     add() {
-         fetch('https://nike-store-api.herokuapp.com/products', {
-  method: 'POST',
-  body: JSON.stringify({
-  name:this.name,
-    price:this.price,
-   category:this.category,
-    img:this.img
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-      this.msg = `${ this.name }  Product Added`;
-    }
+    createProduct() {
+      if (!localStorage.getItem("jwt")) {
+        alert("User not logged in");
+        return this.$router.push({ name: "Login" });
+      }
+      fetch("https://pos-colab.herokuapp.com/products", {
+        method: "POST",
+        body: JSON.stringify({
+          title: this.title,
+          description: this.description,
+          category: this.category,
+          price: this.price,
+          img: this.img,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          alert("Product Created");
+          this.$router.push({ name: "Products" });
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
 };
 </script>
 

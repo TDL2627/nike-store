@@ -5,8 +5,9 @@
 
 <script>
 import Navbar from "./components/Navbar.vue";
+import TheLoader from "./components/TheLoader.vue";
 export default {
-  components:{Navbar},
+  components:{Navbar,TheLoader},
   data(){
     return{
      
