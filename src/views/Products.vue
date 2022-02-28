@@ -65,20 +65,23 @@
         <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       <form @submit.prevent="add">
-    <ul>
-      <li>NAME</li>
-      <li> <input type="text"></li>
-      <li>PRICE</li>
-<li> <input type="number"></li>
-<li>IMAGE URL</li>
-<li> <input type="text"></li>
-           <li>Shoes<input style="margin:10px;" type="radio">Accessories<input style="margin:10px;" type="radio">Clothing<input style="margin:10px;" type="radio"></li>
-         </ul>
-          <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Save changes</button>
-      </div>
+       <form @submit.prevent="createProduct">
+        <ul>
+          <li>NAME</li>
+          <li> <input v-model="name" required type="text"></li>
+          <li>PRICE</li>
+          <li> <input v-model="price" required type="number"></li>
+          <li>IMAGE URL</li>
+          <li> <input v-model="img" required  type="text"></li>
+          <li>Shoes<input v-model="category"  style="margin:10px;" type="radio">Accessories<input v-model="category" style="margin:10px;" type="radio">Clothing<input v-model="category" style="margin:10px;" type="radio"></li>
+        </ul>
+
+        {{name}}
+        {{price}}
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" @click="createProduct" class="btn btn-success">Save changes</button>
+        </div>
        </form>
       </div>
      
@@ -86,7 +89,7 @@
   </div>
 </div>
 
-<!-- Modal for edit  product -->
+<!-- Modal for edit  product
 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -115,7 +118,7 @@
      
     </div>
   </div>
-</div>
+</div> -->
 
   
 <div class="container">
@@ -127,14 +130,16 @@
 <p>R{{product.price}}</p>
 <p>{{product.category}}</p>
 <button type="button" class="btn btn-danger" style="margin:10px;">DELETE</button>
-<button typw="button" class="btn btn-secondary" style="margin:10px;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+<button type="button" class="btn btn-secondary" style="margin:10px;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
   EDIT 
 </button>
 </div>
 
 </div>
 </div>
-    
+
+
+
 </div>
 
 </template>
@@ -180,6 +185,7 @@ components:{
               }
             )
               .then((response) => response.json())
+              
               .then((json) => {
                 product.author = json.name;
               });
@@ -197,15 +203,11 @@ components:{
   },
   // add product
     createProduct() {
-      if (!localStorage.getItem("jwt")) {
-        alert("User not logged in");
-        return this.$router.push({ name: "Login" });
-      }
-      fetch("https://pos-colab.herokuapp.com/products", {
+      console.log(this.name, this.price, this.category, this.img) 
+      fetch("https://nike-store-api.herokuapp.com/products", {
         method: "POST",
         body: JSON.stringify({
-          title: this.title,
-          description: this.description,
+          name: this.name,
           category: this.category,
           price: this.price,
           img: this.img,

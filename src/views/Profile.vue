@@ -17,17 +17,83 @@
     </div>
   </div>
 </nav>
+
+<div class="boxxie"  v-for="user of users" :key="user.name" >
+  
+<h1>{{user.name}}</h1>
+<img :src="user.img" alt="profile pic">
+<p>{{user.email}}</p>
+<p>{{user.contact}}</p>
+<p>{{user.about}}</p>
+</div>
   </div>
+
+
+
 </template>
 
 <script>
 export default {
+    data() {
+    return {
+      users: null,
+      name:"",
+      contact:"",
+      email:"",
+      avatar:""
 
+    };
+  },
+mounted() {
+    if (localStorage.getItem("jwt")) {
+      fetch("https://nike-store-api.herokuapp.com/users", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          this.users = json;
+          this.users.forEach(async (user) => {
+            await fetch(
+              "https://nike-store-api.herokuapp.com/users/" + user._id,
+              {
+                method: "GET",
+                headers: {
+                  "Content-type": "application/json; charset=UTF-8",
+                  Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+                },
+              }
+            )
+              .then((response) => response.json())
+              
+              .then((json) => {
+               user._id = json.name;
+              });
+          });
+        })
+        .catch((err) => {
+          alert("Not logged in");
+          this.$router.push({ name: "Login" })
+        });
+    } else {
+      alert("Login failed");
+      this.$router.push({ name: "Login" });
+    }
+    
+  }
 }
 </script>
 
 <style scoped>
-
+.boxxie{
+  border: 2px solid white;
+}
+.profile{
+   padding-top: 7%;
+}
 
 h1,h5,h3{
   color:red;
