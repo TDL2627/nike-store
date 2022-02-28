@@ -4,7 +4,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
   <div class="container-fluid">
-   <h1 style="margin-right:50px;">Products</h1>
+   <h1 style="margin-right:50px;">PRODUCTS</h1>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -48,7 +48,7 @@
         </li>
       </ul>
          <router-link class="nav-link" to="/cart">CART</router-link>
-            <router-link class="nav-link" to="/profiles">PROFILES</router-link>
+            <router-link class="nav-link" to="/profiles">PROFILE</router-link>
             <router-link class="nav-link" to="/">LOG OUT</router-link>
     </div>
   </div>
@@ -62,7 +62,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add Nike</h5>
         
-        <button type="button" class="btn-close btn=danger" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
        <form action="">
