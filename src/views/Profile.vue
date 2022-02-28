@@ -18,7 +18,7 @@
   </div>
 </nav>
 
-<div class="boxxie"  v-for="user of users" :key="user.name" >
+<div class="boxxie"  v-for="user of users" :key="user._id" >
   
 <h1>{{user.name}}</h1>
 <!-- <img :src="user.img" class="profile-pic" alt="pp"> -->
@@ -55,7 +55,7 @@ export default {
   },
 mounted() {
     if (localStorage.getItem("jwt")) {
-      fetch("https://nike-store-api.herokuapp.com/users" , {
+      fetch("https://nike-store-api.herokuapp.com/users"  , {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -76,6 +76,7 @@ mounted() {
                 },
               }
             )
+            
               .then((response) => response.json())
               
               .then((json) => {
@@ -92,7 +93,8 @@ mounted() {
       this.$router.push({ name: "Login" });
     }
     
-  }
+  },
+  
 }
 </script>
 

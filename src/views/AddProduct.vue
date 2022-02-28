@@ -60,6 +60,20 @@ data() {
 }
 </script>
 
-<style>
-
+<style scoped>
+h1,h5,h3{
+  color:red;
+}
+.nav-link{
+  color:white !important;
+}
+.nav-link:hover{
+  color:red !important;
+}
+.nav-link:focus{
+  color:red !important;
+}
+ul{
+  list-style: none;
+}
 </style>
