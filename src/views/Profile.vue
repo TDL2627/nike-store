@@ -25,6 +25,13 @@
 <p>{{user.email}}</p>
 <p>{{user.contact}}</p>
 <p>{{user.about}}</p>
+<div class="divvie d-flex" >
+<button class="btn btn-danger butt">DELETE</button>
+
+<button class="btn btn-secondary butt">EDIT</button>
+</div>
+
+
 </div>
   </div>
 
@@ -89,8 +96,17 @@ mounted() {
 
 <style scoped>
 .boxxie{
+  margin: 10px;
   border: 2px solid white;
 }
+.divvie{
+  text-align: center;
+  margin-left: 43%;
+}
+.butt{
+  margin: 10px;
+}
+
 .profile{
    padding-top: 7%;
 }
