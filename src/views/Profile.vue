@@ -21,7 +21,8 @@
 <div class="boxxie"  v-for="user of users" :key="user.name" >
   
 <h1>{{user.name}}</h1>
-<img :src="user.img" alt="profile pic">
+<!-- <img :src="user.img" class="profile-pic" alt="pp"> -->
+<img src="@/assets/person.png" class="profile-pic" alt="pp">
 <p>{{user.email}}</p>
 <p>{{user.contact}}</p>
 <p>{{user.about}}</p>
@@ -47,13 +48,14 @@ export default {
       name:"",
       contact:"",
       email:"",
-      avatar:""
+      avatar:"",
+      about:""
 
     };
   },
 mounted() {
     if (localStorage.getItem("jwt")) {
-      fetch("https://nike-store-api.herokuapp.com/users", {
+      fetch("https://nike-store-api.herokuapp.com/users" , {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -113,6 +115,9 @@ mounted() {
 
 h1,h5,h3{
   color:red;
+}
+p{
+  color: white;
 }
 .nav-link{
   color:white !important;

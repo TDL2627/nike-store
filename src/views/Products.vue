@@ -47,6 +47,7 @@
           </form>
         </li>
       </ul>
+       <router-link class="nav-link" to="/add">ADD A PRODUCT</router-link>
          <router-link class="nav-link" to="/cart">CART</router-link>
             <router-link class="nav-link" to="/profiles">PROFILE</router-link>
             <router-link class="nav-link" to="/">LOG OUT</router-link>
@@ -89,7 +90,7 @@
   </div>
 </div>
 
-<!-- Modal for edit  product
+<!-- Modal for edit  product -->
 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -118,7 +119,7 @@
      
     </div>
   </div>
-</div> -->
+</div>
 
   
 <div class="container">
