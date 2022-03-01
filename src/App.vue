@@ -1,6 +1,7 @@
 <template>
 
   <router-view/>
+  <Footer/>
 </template>
 
 <script>
@@ -27,8 +28,11 @@ export default {
   text-align: center;
   background-color:black;
   height:100vh;
+width: 100%;
+margin: 0;
+padding: 0;
   color: #2c3e50;
-  overflow-y: scroll;
+  overflow-y: none;
 }
 *{
   font-family: 'Oswald', sans-serif;

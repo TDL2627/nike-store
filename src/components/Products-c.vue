@@ -244,6 +244,8 @@ components:{
   padding-top: 7%;
    padding-bottom: 7%;
    padding-left: 8%;
+   height: 100vh;
+   overflow-y: scroll;
 }
 .card{
   border: 2px solid black;

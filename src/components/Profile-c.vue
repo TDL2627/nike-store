@@ -113,6 +113,8 @@ mounted() {
 
 .profile{
    padding-top: 7%;
+    height: 100vh;
+   overflow-y: scroll;
 }
 
 h1,h5,h3{
