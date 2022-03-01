@@ -4,8 +4,11 @@
 </template>
 
 <script>
+// Componenets of different sections
 import Navbar from "./components/Navbar.vue";
 import TheLoader from "./components/TheLoader.vue";
+
+
 export default {
   components:{Navbar,TheLoader},
   data(){

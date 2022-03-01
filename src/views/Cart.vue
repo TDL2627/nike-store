@@ -1,29 +1,17 @@
 <template>
 
 
- <div class="cart">
-<the-loader></the-loader>
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
-  <div class="container-fluid">
-   <h1 style="margin-right:50px;">CART</h1>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="navg d-flex">
-         <router-link class="nav-link" to="/products">PRODUCTS</router-link>
-            <router-link class="nav-link" to="/profiles">PROFILE</router-link>
-            <router-link class="nav-link" to="/">LOG OUT</router-link>
-    </div>
+<div><Cart/></div>
 
-    </div>
-  </div>
-</nav>
- </div>
+  
+
+   
 </template>
 
 <script>
+import Cart from "@/components/Cart-c.vue";
 export default {
+  components:{Cart},
 
 }
 </script>
