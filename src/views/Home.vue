@@ -43,6 +43,8 @@ a{
   border: none;
   border-radius: 25px;
   padding: 15px;
+  padding-left: 100px;
+   padding-right: 100px;
   margin:15px;
   width: 400px !important;
   color: red;
@@ -51,13 +53,26 @@ a{
 }
 a:hover{
   color: black;
+  border:solid 5px red;
 }
 .linky{
     position: fixed;
   bottom: 15%;
-  left: 40%;
+  left: 30%;
 }
 
+/* media qeury */
+@media only screen and (max-width: 500px) {
+a{
+   padding-left: 50px;
+   padding-right: 50px;
+}
+.linky{
+    position: fixed;
+  bottom: 15%;
+  left: 20%;
+}
+}
 
 /* animation */
 @keyframes animatedBackground {

@@ -1,7 +1,8 @@
 <template>
   <div class="footer">
       POINT OF SALE
-     <p></p>
+    -( 2022 )
+    <p class="trademark">© TDL2627</p> 
   </div>
 </template>
 
@@ -20,5 +21,14 @@ export default {
     width: 100%;
     padding: 15px;
     left:0;
+}
+p{
+  color:white;
+}
+.trademark{
+  position:fixed;
+  left:0;
+  bottom:0;
+
 }
 </style>
