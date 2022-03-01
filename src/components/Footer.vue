@@ -1,6 +1,7 @@
 <template>
   <div class="footer">
-      THIS IS THE FOOTER
+      POINT OF SALE
+     <p></p>
   </div>
 </template>
 

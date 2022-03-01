@@ -38,7 +38,7 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
       required
     />
 
- <input type="text" placeholder="IMG URL" v-model="img"    class="form-input neu-border-inset">
+ <input type="text" placeholder="IMG URL" v-model="avatar"    class="form-input neu-border-inset">
  <textarea placeholder="About yourself" v-model="about" cols="30"    class="form-input neu-border-inset" rows="10"></textarea>
     <button type="submit" class="form-btn neu-border">Sign up</button>
    
@@ -61,7 +61,7 @@ export default {
       password: "",
       about:"",
       msg: '',
-      img:""
+      avatar:""
     };
   },
   methods: {
@@ -74,7 +74,7 @@ export default {
     name:this.name,
     contact:this.contact,
     about:this.about,
-    img:this.img
+    avatar:this.avatar
   }),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
@@ -93,6 +93,8 @@ export default {
 .register{
   padding-top:7%;
   padding-bottom: 6%;
+    height: 100vh;
+   overflow-y: scroll;
 }
 .neu-border {
   border-radius: 30px;

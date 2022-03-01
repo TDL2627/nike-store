@@ -19,6 +19,9 @@
     </div>
   </div>
 </nav>
+
+<h1>in development ...</h1>
+<h1>coming soon</h1>
  </div>
 </template>
 
