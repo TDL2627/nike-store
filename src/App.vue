@@ -34,6 +34,26 @@ padding: 0;
   color: #2c3e50;
   overflow-y: none;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 25px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(71, 4, 4); 
+}
 *{
   font-family: 'Oswald', sans-serif;
 }

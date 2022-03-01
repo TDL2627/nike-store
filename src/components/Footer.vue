@@ -17,6 +17,7 @@ export default {
     color: azure;
     bottom: 0;
     width: 100%;
+    padding: 15px;
     left:0;
 }
 </style>

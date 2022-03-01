@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-      
+       <the-loader></the-loader>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
   <div class="container-fluid">
    <h1 style="margin-right:50px;">PROFILE</h1>
@@ -39,9 +39,13 @@
 
 
 </template>
-
 <script>
+
+import TheLoader from "@/components/TheLoader.vue";
 export default {
+components:{
+  TheLoader
+},
     data() {
     return {
       users: null,
