@@ -7,10 +7,10 @@
 // Componenets of different sections
 import Navbar from "./components/Navbar.vue";
 import TheLoader from "./components/TheLoader.vue";
-
+import Footer from "./components/Footer.vue";
 
 export default {
-  components:{Navbar,TheLoader},
+  components:{Navbar,TheLoader,Footer},
   data(){
     return{
      

@@ -1,6 +1,6 @@
 <template>
   
-<Register/>
+<AddProduct/>
 </template>
 <script>
 import AddProduct from "@/components/AddProduct-c.vue";
