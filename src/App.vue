@@ -41,7 +41,7 @@ padding: 0;
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: black; 
+  background: whitesmoke; 
 }
  
 /* Handle */
@@ -52,7 +52,7 @@ padding: 0;
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(71, 4, 4); 
+  background: rgb(199, 70, 70); 
 }
 *{
   font-family: 'Oswald', sans-serif;

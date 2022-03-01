@@ -8,7 +8,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="navg d-flex">
+    <div class="navg">
          <router-link class="nav-link" to="/products">PRODUCTS</router-link>
             <router-link class="nav-link" to="/cart">CART</router-link>
             <router-link class="nav-link" to="/">LOG OUT</router-link>
@@ -21,10 +21,13 @@
 <div class="boxxie"  v-for="user of users" :key="user._id" >
   
 <h1>{{user.name}}</h1>
-<!-- <img :src="user.img" class="pp" alt="profile-pic"> -->
-<img src="@/assets/person.png" class="profile-pic" alt="pp">
+<img :src="user.avatar" class="pp" alt="profile-pic">
+<!-- <img src="@/assets/person.png" class="profile-pic" alt="pp"> -->
+        <h3>EMAIL</h3>
 <p>{{user.email}}</p>
+<h3>CONTACT</h3>
 <p>{{user.contact}}</p>
+<h3>ABOUT</h3>
 <p>{{user.about}}</p>
 <div class="divvie d-flex" >
 <button class="btn btn-danger butt">DELETE</button>
@@ -117,6 +120,7 @@ mounted() {
 
 .profile{
    padding-top: 7%;
+    padding-bottom: 7%;
     height: 100vh;
    overflow-y: scroll;
 }
@@ -149,9 +153,33 @@ color: red;
   background: none;
   padding-left: 50px;
 }
+
+.pp{
+    border-radius: 50%;
+    border: solid 2px red;
+    object-fit: cover;
+    height: 200px;
+    width:200px;
+
+}
+
 .navg{
   position: fixed;
-  
+  display: inline-flex;
   right: 5px;
+}
+@media only screen and (max-width: 500px) {
+ .navg{
+  position: relative;
+  display: initial;
+}
+.profile{
+    padding-top: 15%;
+    padding-bottom:15%;
+}
+.divvie{
+  text-align: center;
+  margin-left: 33%;
+}
 }
 </style>

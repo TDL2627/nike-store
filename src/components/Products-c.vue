@@ -47,7 +47,7 @@
           </form>
         </li>
       </ul>
-       <router-link class="nav-link" to="/add">ADD A PRODUCT</router-link>
+       <!-- <router-link class="nav-link" to="/add">ADD A PRODUCT</router-link> -->
          <router-link class="nav-link" to="/cart">CART</router-link>
             <router-link class="nav-link" to="/profiles">PROFILE</router-link>
             <router-link class="nav-link" to="/">LOG OUT</router-link>
@@ -280,5 +280,16 @@ ul{
 color: red;
   background: none;
   padding-left: 50px;
+}
+
+@media only screen and (max-width: 500px) {
+.products{
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+.card{
+    width: 80%;
+}
+
 }
 </style>
