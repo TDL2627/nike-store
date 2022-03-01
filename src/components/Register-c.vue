@@ -37,11 +37,9 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
       placeholder="Password"
       required
     />
-   <ul>
-     <li> MALE <input type="radio" v-model="gender" style="margin-right:50px"> FEMALE  <input type="radio" v-model="gender"></li>
-    
-   </ul>
 
+ <input type="text" placeholder="IMG URL" v-model="img"    class="form-input neu-border-inset">
+ <textarea placeholder="About yourself" v-model="about" cols="30"    class="form-input neu-border-inset" rows="10"></textarea>
     <button type="submit" class="form-btn neu-border">Sign up</button>
    
 
@@ -61,8 +59,9 @@ export default {
       email: "",
       contact: "",
       password: "",
-      gender:"",
-      msg: ''
+      about:"",
+      msg: '',
+      img:""
     };
   },
   methods: {
@@ -74,7 +73,8 @@ export default {
     password:this.password,
     name:this.name,
     contact:this.contact,
-    about:this.gender
+    about:this.about,
+    img:this.img
   }),
   headers: {
     'Content-type': 'application/json; charset=UTF-8',
@@ -83,6 +83,8 @@ export default {
   .then((response) => response.json())
   .then((json) => console.log(json));
       this.msg = `${ this.name }  Registered Successfuly`;
+       alert("Logging in...");
+          this.$router.push({ name: "Products" });
     },
   },
 };
