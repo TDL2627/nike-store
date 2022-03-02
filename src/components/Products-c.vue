@@ -105,7 +105,7 @@
         <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       <form action="">
+       <form @submit.prevent="updateProduct">
     <ul>
       <li>NAME</li>
       <li> <input v-model="name" required type="text"></li>
@@ -236,6 +236,57 @@ components:{
           alert(err);
         });
     },
+    // update
+    updateProduct() {
+      if (!localStorage.getItem("jwt")) {
+        alert("User not logged in");
+        return this.$router.push({ name: "Login" });
+      }
+      fetch("https://nike-store-api.herokuapp.com/products" + product.author, {
+        method: "PUT",
+        body: JSON.stringify({
+          name: this.name,
+          category: this.category,
+          price: this.price,
+          img: this.img,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          alert("Product Edited");
+          this.$router.push({ name: "Products" });
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+    // delete product
+    deleteProduct(){
+       if (!localStorage.getItem("jwt")) {
+        alert("User not logged in");
+        return this.$router.push({ name: "Login" });
+      }
+      fetch("https://nike-store-api.herokuapp.com/products" + product.author, {
+        method: "DELETE",
+      
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          alert("Product Deleted");
+          this.$router.push({ name: "Products" });
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    }
   },
     // search
       computed: {
