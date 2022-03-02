@@ -64,13 +64,13 @@ a:hover{
 /* media qeury */
 @media only screen and (max-width: 500px) {
 a{
-   padding-left: 50px;
-   padding-right: 50px;
+   padding-left: 40px;
+   padding-right: 40px;
 }
 .linky{
     position: fixed;
   bottom: 15%;
-  left: 20%;
+  left: 2%;
 }
 }
 

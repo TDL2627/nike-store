@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
       POINT OF SALE
-    -( 2022 )
+    - ( 2022 )
     <p class="trademark">© TDL2627</p> 
   </div>
 </template>

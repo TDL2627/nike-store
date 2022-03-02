@@ -179,7 +179,7 @@ color: red;
 }
 .divvie{
   text-align: center;
-  margin-left: 33%;
+  margin-left: 23%;
 }
 }
 </style>
