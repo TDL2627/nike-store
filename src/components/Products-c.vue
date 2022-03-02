@@ -205,7 +205,7 @@ components:{
   },
   // add product
     createProduct() {
-      console.log(this.name, this.price, this.category, this.img) 
+ 
       fetch("https://nike-store-api.herokuapp.com/products", {
         method: "POST",
         body: JSON.stringify({
