@@ -41,7 +41,8 @@
           </ul>
         </li>
         <li>
-          <form class="d-flex" @submit.prevent="createProduct">
+          <!-- search -->
+          <form class="d-flex" @submit.prevent="filteredList">
              <input class="form-control me-2"  type="search" v-model="search" placeholder="Search" aria-label="Search">
                      <button class="btn btn-outline-danger"   type="submit">Search</button>
           </form>
@@ -74,14 +75,18 @@
           <li> <input v-model="price" required type="number"></li>
           <li>IMAGE URL</li>
           <li> <input v-model="img" required  type="text"></li>
-          <li>Shoes<input v-model="category"  style="margin:10px;" type="radio">Accessories<input v-model="category" style="margin:10px;" type="radio">Clothing<input v-model="category" style="margin:10px;" type="radio"></li>
-        </ul>
+<label for="genre">CATEGORY:</label>
+<select id="genre" v-model="category" name="genre">
+  <option value="Shoes">Shoes</option>
+  <option value="Accessories">Accessories</option>
+  <option value="Clothing">Clothing</option>
 
-        {{name}}
-        {{price}}
+</select>        </ul>
+
+       
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" @click="createProduct" class="btn btn-success">Save changes</button>
+          <button type="submit" class="btn btn-success">Save changes</button>
         </div>
        </form>
       </div>
@@ -203,9 +208,12 @@ components:{
     }
     
   },
-  // add product
+   methods: {
     createProduct() {
- 
+      if (!localStorage.getItem("jwt")) {
+        alert("User not logged in");
+        return this.$router.push({ name: "Login" });
+      }
       fetch("https://nike-store-api.herokuapp.com/products", {
         method: "POST",
         body: JSON.stringify({
@@ -228,12 +236,17 @@ components:{
           alert(err);
         });
     },
+  },
     // search
       computed: {
     filteredList() {
       return this.products.filter(product => {
         return product.name.toLowerCase().includes(this.search.toLowerCase())
+       .then(
+            alert("search not working")
+       )
       })
+      
     }
       }
 };
