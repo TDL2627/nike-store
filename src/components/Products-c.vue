@@ -113,8 +113,13 @@
 <li> <input v-model="price" required type="number"></li>
 <li>IMAGE URL</li>
 <li> <input v-model="img" required  type="text"></li>
-           <li>Shoes<input v-model="category"  style="margin:10px;" type="radio">Accessories<input v-model="category" style="margin:10px;" type="radio">Clothing<input v-model="category" style="margin:10px;" type="radio"></li>
-         </ul>
+<label for="genre">CATEGORY:</label>
+<select id="genre" v-model="category" name="genre">
+  <option value="Shoes">Shoes</option>
+  <option value="Accessories">Accessories</option>
+  <option value="Clothing">Clothing</option>
+
+</select>          </ul>
           <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-success">Save changes</button>
