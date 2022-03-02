@@ -32,12 +32,12 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Catergory
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-            <li><button class="droppie">Shoes</button></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown1" >
+            <li><button  @submit.prevent="filterProductsByCategory" value="Shoes" class="droppie">Shoes</button></li>
               <li><hr class="dropdown-divider"></li>
-            <li><button class="droppie">Accessories</button></li>
+            <li><button  @submit.prevent="filterProductsByCategory" value="Accessories" class="droppie">Accessories</button></li>
             <li><hr class="dropdown-divider"></li>
-            <li><button class="droppie">Clothing</button></li>
+            <li><button  @submit.prevent="filterProductsByCategory" value="Clothing" class="droppie">Clothing</button></li>
           </ul>
         </li>
         <li>
@@ -247,7 +247,7 @@ components:{
         alert("User not logged in");
         return this.$router.push({ name: "Login" });
       }
-      fetch("https://nike-store-api.herokuapp.com/products" + product.author, {
+      fetch("https://nike-store-api.herokuapp.com/products" + product._id, {
         method: "PUT",
         body: JSON.stringify({
           name: this.name,
@@ -275,7 +275,7 @@ components:{
         alert("User not logged in");
         return this.$router.push({ name: "Login" });
       }
-      fetch("https://nike-store-api.herokuapp.com/products" + product.author, {
+      fetch("https://nike-store-api.herokuapp.com/products" + product._id, {
         method: "DELETE",
       
         headers: {
@@ -303,8 +303,37 @@ components:{
        )
       })
       
-    }
-      }
+    },
+    filteredProducts() {
+    let tempproducts = this.products
+    
+       
+    // Sort by alphabetical order
+        tempproducts = tempproducts.sort((a, b) => {
+            if (this.sortBy == 'alphabetically') {
+                let fa = a.name.toLowerCase(), fb = b.name.toLowerCase()
+          
+              if (fa < fb) {
+                return -1
+              }
+              if (fa > fb) {
+                return 1 
+              }
+              return 0
+              
+            } 
+        })
+    
+       
+        
+        return tempproducts
+  },
+  // find
+    filterProductsByCategory: function(){
+                return this.products.filter(product => !product.category.indexOf(this.category))
+            }
+}
+      
 };
 </script>
 
