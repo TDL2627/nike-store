@@ -32,10 +32,49 @@
 <div class="divvie d-flex" >
 <button class="btn btn-danger butt">DELETE</button>
 
-<button class="btn btn-secondary butt">EDIT</button>
+<button type="button" class="btn btn-secondary" style="margin:10px;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+  EDIT 
+</button>
 </div>
 
 
+</div>
+
+
+<!-- Modal for edit  profile -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">EDIT NIKE</h5>
+        <p>(not working yet)</p>
+        
+        <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form @submit.prevent="updateProduct">
+    <ul>
+      <li>NAME</li>
+      <li> <input v-model="name" required type="text"></li>
+            <li>CONTACT</li>
+      <li> <input v-model="contact" required type="text"></li>
+      <li>EMAIL</li>
+<li> <input v-model="email" required type="email"></li>
+<li>IMAGE URL</li>
+<li> <input v-model="avatar" required  type="text"></li>
+      <li>ABOUT</li>
+      <li> <textarea name="about" v-model="about" cols="30" rows="10"></textarea></li>
+
+          </ul>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">Save changes</button>
+      </div>
+       </form>
+      </div>
+     
+    </div>
+  </div>
 </div>
   </div>
 
