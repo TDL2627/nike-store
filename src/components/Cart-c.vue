@@ -22,6 +22,7 @@
 
 <h1>in development ...</h1>
 <h1>coming soon</h1>
+<h3>server cart functions not linked to front-end yet...</h3>
  </div>
 </template>
 

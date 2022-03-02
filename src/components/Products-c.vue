@@ -22,9 +22,9 @@
             Sort by
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><button class="droppie">Price</button></li>
+            <li><button class="droppie"  @submit.prevent="filteredProducts">Price</button></li>
               <li><hr class="dropdown-divider"></li>
-            <li><button class="droppie">Name</button></li>
+            <li><button class="droppie"  @submit.prevent="filteredProducts">Name</button></li>
           
           </ul>
         </li>
@@ -101,6 +101,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">EDIT NIKE</h5>
+        <p>(not working yet)</p>
         
         <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
