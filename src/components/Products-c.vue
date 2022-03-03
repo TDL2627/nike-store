@@ -41,8 +41,8 @@
           </ul>
         </li>
         <li>
-          <!-- search -->
-          <form class="d-flex" @submit.prevent="filteredList">
+        
+           <form class="d-flex" @submit.prevent="filteredProducts">
              <input class="form-control me-2"  type="search" v-model="search" placeholder="Search" aria-label="Search">
                      <button class="btn btn-outline-danger"   type="submit">Search</button>
           </form>
@@ -141,7 +141,7 @@
 <h3>{{product.name}}</h3>
 <p>R{{product.price}}</p>
 <p>{{product.category}}</p>
-<button type="button" class="btn btn-danger" style="margin:10px;">DELETE</button>
+  <button @click.prevent="deleteUser(product._id)" class="btn btn-danger">Delete</button>
 <button type="button" class="btn btn-secondary" style="margin:10px;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
   EDIT 
 </button>
@@ -158,6 +158,7 @@
 
 <script>
 import TheLoader from "@/components/TheLoader.vue";
+import axios from "axios";
 export default {
 components:{
   TheLoader
@@ -170,6 +171,7 @@ components:{
       price:"",
       img:"",
        search: "",
+       hello:""
 
     };
   },
@@ -200,7 +202,7 @@ components:{
               .then((response) => response.json())
               
               .then((json) => {
-                product.author = json.name;
+                product.author = json._id;
               });
           });
         })
@@ -271,44 +273,31 @@ components:{
         });
     },
     // delete product
-    deleteProduct(){
-       if (!localStorage.getItem("jwt")) {
-        alert("User not logged in");
-        return this.$router.push({ name: "Login" });
-      }
-      fetch("https://nike-store-api.herokuapp.com/products" + product._id, {
-        method: "DELETE",
-      
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          alert("Product Deleted");
-          this.$router.push({ name: "Products" });
-        })
-        .catch((err) => {
-          alert(err);
-        });
-    }
+    deleteUser(id){
+                let apiURL = `https://nike-store-api.herokuapp.com/products/${id}`;
+                
+                let indexOfArrayItem = this.products.findIndex(i => i._id === id);
+
+                if (window.confirm("Do you really want to delete?")) {
+
+                    axios.delete(apiURL).then(() => {
+                        this.products.splice(indexOfArrayItem, 1);
+                    }).catch(error => {
+                        console.log(error)
+                    });
+                }
+            }
   },
     // search
       computed: {
-    filteredList() {
-      return this.products.filter(product => {
-        return product.name.toLowerCase().includes(this.search.toLowerCase())
-       .then(
-            alert("search not working")
-       )
+    filteredProducts: function() {
+      return this.products.filter((product) => {
+        return product.name.match(this.hello)
       })
-      
     },
-    filteredProducts() {
+    filteredProductsByName() {
     let tempproducts = this.products
-    
-       
+  
     // Sort by alphabetical order
         tempproducts = tempproducts.sort((a, b) => {
             if (this.sortBy == 'alphabetically') {

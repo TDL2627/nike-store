@@ -30,7 +30,7 @@
 <h3>ABOUT</h3>
 <p>{{user.about}}</p>
 <div class="divvie d-flex" >
-<button class="btn btn-danger butt">DELETE</button>
+                     <button @click.prevent="deleteUser(user._id)" class="btn btn-danger">Delete</button>
 
 <button type="button" class="btn btn-secondary" style="margin:10px;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
   EDIT 
@@ -82,8 +82,9 @@
 
 </template>
 <script>
-
+import axios from "axios";
 import TheLoader from "@/components/TheLoader.vue";
+
 export default {
 components:{
   TheLoader
@@ -126,7 +127,7 @@ mounted() {
               .then((response) => response.json())
               
               .then((json) => {
-               user._id = json.name;
+               user._id = json._id;
               });
           });
         })
@@ -140,6 +141,21 @@ mounted() {
     }
     
   },
+   methods: {
+            deleteUser(id){
+                let apiURL = `https://nike-store-api.herokuapp.com/users/${id}`;
+                let indexOfArrayItem = this.users.findIndex(i => i._id === id);
+
+                if (window.confirm("Do you really want to delete?")) {
+                    axios.delete(apiURL).then(() => {
+                        this.users.splice(indexOfArrayItem, 1);
+                          this.$router.push({ name: "Home" });
+                    }).catch(error => {
+                        console.log(error)
+                    });
+                }
+            }
+        }
   
 }
 </script>
