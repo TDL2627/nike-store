@@ -42,10 +42,10 @@
         </li>
         <li>
         
-           <form class="d-flex" @submit.prevent="filteredProducts">
-             <input class="form-control me-2"  type="search" v-model="hello" placeholder="Search" aria-label="Search">
+           <!-- <form class="d-flex" @submit.prevent="filteredProducts">
+             <input class="form-control me-2" style="height:40px; margin:20px;" type="search" v-model="hello" placeholder="Search" aria-label="Search">
                      <button class="btn btn-outline-danger"   type="submit">Search</button>
-          </form>
+          </form> -->
         </li>
       </ul>
        <!-- <router-link class="nav-link" to="/add">ADD A PRODUCT</router-link> -->
@@ -141,7 +141,8 @@
 <h3>{{product.name}}</h3>
 <p>R{{product.price}}</p>
 <p>{{product.category}}</p>
-<div class="d-flex">
+<button class="btn btn-success">ADD TO CART</button>
+<div style="margin-left:15%;" class="d-flex">
 <button @click.prevent="deleteProduct(product._id)" class="btn  btn-danger" style="margin:10px;">DELETE</button>
 <button  class="btn butt btn-secondary" style="margin:10px;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
   EDIT 
@@ -220,6 +221,7 @@ components:{
     
   },
    methods: {
+    //  create
     createProduct() {
       if (!localStorage.getItem("jwt")) {
         alert("User not logged in");
@@ -241,7 +243,7 @@ components:{
         .then((response) => response.json())
 
         .then((json) => {
-          alert("Product Created");
+          alert("Product Created (REFRESH TO SEE ITEM)");
           this.$router.push({ name: "Products" });
         })
         .catch((err) => {
