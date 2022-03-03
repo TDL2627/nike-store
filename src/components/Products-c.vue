@@ -43,7 +43,7 @@
         <li>
         
            <form class="d-flex" @submit.prevent="filteredProducts">
-             <input class="form-control me-2"  type="search" v-model="search" placeholder="Search" aria-label="Search">
+             <input class="form-control me-2"  type="search" v-model="hello" placeholder="Search" aria-label="Search">
                      <button class="btn btn-outline-danger"   type="submit">Search</button>
           </form>
         </li>
@@ -136,15 +136,18 @@
 <div class="container">
 <div class="row">
 
-<div v-for="product of products" :key="product.name" class="card col-lg-3">
+<div v-for="product of products " :key="product.name" class="card col-lg-3">
 <img :src="product.img" alt="pik" class="pic">
 <h3>{{product.name}}</h3>
 <p>R{{product.price}}</p>
 <p>{{product.category}}</p>
-  <button @click.prevent="deleteUser(product._id)" class="btn btn-danger">Delete</button>
-<button type="button" class="btn btn-secondary" style="margin:10px;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+<div class="d-flex">
+<button @click.prevent="deleteProduct(product._id)" class="btn  btn-danger" style="margin:10px;">DELETE</button>
+<button  class="btn butt btn-secondary" style="margin:10px;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
   EDIT 
 </button>
+</div>
+  
 </div>
 
 </div>
@@ -236,6 +239,7 @@ components:{
         },
       })
         .then((response) => response.json())
+
         .then((json) => {
           alert("Product Created");
           this.$router.push({ name: "Products" });
@@ -250,7 +254,7 @@ components:{
         alert("User not logged in");
         return this.$router.push({ name: "Login" });
       }
-      fetch("https://nike-store-api.herokuapp.com/products" + product._id, {
+      fetch("https://nike-store-api.herokuapp.com/products/" + products._id, {
         method: "PUT",
         body: JSON.stringify({
           name: this.name,
@@ -273,14 +277,20 @@ components:{
         });
     },
     // delete product
-    deleteUser(id){
+    deleteProduct(id){
+      const config = {
+  headers:{
+    "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`
+  }
+};
                 let apiURL = `https://nike-store-api.herokuapp.com/products/${id}`;
                 
                 let indexOfArrayItem = this.products.findIndex(i => i._id === id);
 
                 if (window.confirm("Do you really want to delete?")) {
 
-                    axios.delete(apiURL).then(() => {
+                    axios.delete(apiURL, config).then(() => {
                         this.products.splice(indexOfArrayItem, 1);
                     }).catch(error => {
                         console.log(error)
@@ -370,6 +380,9 @@ color: red;
   padding-left: 50px;
 }
 
+.btn{
+  margin:20px ;
+}
 @media only screen and (max-width: 500px) {
 .products{
     padding-top: 15%;
