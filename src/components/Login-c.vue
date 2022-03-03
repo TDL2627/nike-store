@@ -89,7 +89,7 @@ export default {
   text-decoration-color: red;
 }
 .login{
-  padding-top:7%;
+  padding-top:2%;
   height: 100vh;
   overflow-y:scroll;
 

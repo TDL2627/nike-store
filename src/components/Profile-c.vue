@@ -29,7 +29,7 @@
 <p>{{user.contact}}</p>
 <h3>ABOUT</h3>
 <p>{{user.about}}</p>
-<div class="divvie d-flex" >
+<div class="divvie" >
                      <button @click.prevent="deleteUser(user._id)" class="btn btn-danger">Delete</button>
 
 <button type="button" class="btn btn-secondary" style="margin:10px;" data-bs-toggle="modal" data-bs-target="#exampleModal1">
@@ -167,7 +167,7 @@ mounted() {
 }
 .divvie{
   text-align: center;
-  margin-left: 43%;
+  
 }
 .butt{
   margin: 10px;

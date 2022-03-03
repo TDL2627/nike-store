@@ -92,7 +92,7 @@ export default {
 </script>
 <style>
 .register{
-  padding-top:7%;
+  padding-top:2%;
   padding-bottom: 7%;
     height: 100vh;
    overflow-y: scroll;
